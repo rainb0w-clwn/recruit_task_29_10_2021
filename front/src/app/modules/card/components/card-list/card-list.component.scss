@@ -1,0 +1,82 @@
+.card-card {
+  border-radius: 4px;
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 21%;
+  flex-direction: column;
+  padding: 8px;
+  cursor: pointer;
+  min-width: 290px;
+  user-select: none;
+  position: relative;
+  width: 33.3%;
+  margin: 15px;
+  max-width: 33.3%;
+  /*min-width: 30%;*/
+  border: 1px solid #eeeeee;
+}
+.card-header {
+  padding: 0;
+  text-align: center;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  overflow: hidden;
+  flex-grow: 1;
+  min-height: 200px;
+  height: 320px;
+  position: relative;
+}
+.card-header img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+}
+.card-card:hover {
+  box-shadow: 0px 0px 15px #00000033;
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.card-name {
+  color: #3f3f3f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 20px;
+}
+.card-info-sub {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-deck .card-card {
+  width: 30%;
+  text-decoration: none;
+  color: inherit
+}
+
+.card-deck {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
+}

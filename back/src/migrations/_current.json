@@ -1,0 +1,55 @@
+{
+    "tables": {
+        "Cards": {
+            "tableName": "Cards",
+            "schema": {
+                "id": {
+                    "primaryKey": true,
+                    "autoIncrement": true,
+                    "field": "id",
+                    "seqType": "Sequelize.INTEGER"
+                },
+                "title": {
+                    "allowNull": false,
+                    "field": "title",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "description": {
+                    "allowNull": false,
+                    "field": "description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "short_description": {
+                    "allowNull": false,
+                    "field": "short_description",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "image": {
+                    "field": "image",
+                    "seqType": "Sequelize.TEXT"
+                },
+                "createdAt": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.fn(\"NOW\")"
+                    },
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "defaultValue": {
+                        "internal": true,
+                        "value": "Sequelize.fn(\"NOW\")"
+                    },
+                    "onUpdate": {
+                        "val": "CURRENT_TIMESTAMP"
+                    },
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
+                }
+            },
+            "indexes": []
+        }
+    },
+    "revision": 1
+}

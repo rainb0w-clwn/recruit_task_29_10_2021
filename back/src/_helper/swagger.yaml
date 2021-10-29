@@ -1,0 +1,162 @@
+openapi: 3.0.0
+info:
+  title: Just a server
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:4200
+    description: Local development server
+tags:
+  - name: "card"
+    description: "Everything about card"
+
+
+
+paths:
+  /api/v1/card:
+    get:
+      tags:
+        - "card"
+      summary: Get a paginated list of cards
+      description: ""
+      operationId: cards
+      parameters:
+        - in: page
+          name: "page"
+          description: displacement of cards by page
+          required: false
+          example: "1"
+          schema:
+            type: "string"
+        - in: size
+          name: size
+          description: max number of cards on page
+          example: "10"
+          schema:
+            type: "string"
+      responses:
+        "200":
+          description: Card list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: "1"
+                        title:
+                          type: string
+                          example: "Title"
+                        description:
+                          type: string
+                          example: "Description"
+                        short_description:
+                          type: string
+                        image:
+                          type: string
+                          example: "Image url"
+                  totalItems:
+                    type: integer
+                    example: "1"
+                  totalPages:
+                    type: integer
+                    example: "1"
+                  currentPage:
+                    type: integer
+                    example: "1"
+        "500":
+          description: Server fall
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: " Internal Error"
+  /api/v1/card/{cardId}:
+    get:
+      tags:
+        - "card"
+      summary: Get a card by ID
+      operationId: CardById
+      parameters:
+        - in: path
+          name: cardId
+          description: card Id
+          required: true
+          example: "1"
+          schema:
+            type: string
+      responses:
+        "200":
+          description: add the product to favorite list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: "1"
+                  title:
+                    type: string
+                    example: "Title"
+                  description:
+                    type: string
+                    example: "Description"
+                  short_description:
+                    type: string
+                  image:
+                    type: string
+                    example: "Image url"
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "BadRequest"
+        "500":
+          description: Server fall
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: " Internal Error"
+
+components:
+  responses:
+    BadRequestError:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Bad Request"
+    NotFoundError:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                example: "Not Found"
+

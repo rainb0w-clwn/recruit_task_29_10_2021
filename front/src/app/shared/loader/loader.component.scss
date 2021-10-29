@@ -1,0 +1,34 @@
+:host {
+  background-color: #ddd;
+  display: block;
+  height: 4px;
+  left: 0;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+
+  &::before {
+    animation: loading 2s linear infinite;
+    background-color: #2980b9;
+    content: '';
+    display: block;
+    height: 4px;
+    left: -200px;
+    position: absolute;
+    width: 200px;
+  }
+
+}
+
+@keyframes loading {
+  from {left: -200px;
+    width: 30%;}
+  50% {width: 30%;}
+  70% {width: 30%;}
+  80% { width: 30%;}
+  95% {left: 120%;}
+  to {left: 100%;}
+}

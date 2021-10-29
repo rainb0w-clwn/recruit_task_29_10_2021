@@ -1,0 +1,18 @@
+app-loader(*ngIf="busy")
+section.p-5#card-list
+    .container-fluid
+        .col-12
+            h3.mb-2.text-center Список карточек
+            hr
+        .card-deck
+            .card-card.h-100(*ngFor="let card of cards", (click)="openCardInfo(card.id)")
+                .card-header
+                    img(src="{{card.image}}")
+                .card-body
+                    .card-name.font-weight-bold {{card.title}}
+                    .card-info-sub
+                        .card-short {{card.short_description}}
+        .button-block.d-flex.justify-content-center(*ngIf="canGetMore")
+            button.btn.btn-success.btn-lg((click)="getMoreCards()") Показать еще
+
+

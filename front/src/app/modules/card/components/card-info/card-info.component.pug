@@ -1,0 +1,12 @@
+ng-container(*ngIf="card")
+    .modal-header
+        h3.modal-title.fwb {{ card.title }}
+        button.close(type="button", (click)="modalRef.hide()")
+            i.fas.fa-times
+    .modal-body
+        .card-card
+            .card-header
+                img(src="{{card.image}}")
+            .card-body
+                .card-info-sub
+                    .card-short {{card.description}}
