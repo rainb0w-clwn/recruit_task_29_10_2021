@@ -4,7 +4,7 @@ section.p-5#card-list
         .col-12
             h3.mb-2.text-center Список карточек
             hr
-        .card-deck
+        .card-deck(*ngIf="cards")
             .card-card.h-100(*ngFor="let card of cards", (click)="openCardInfo(card.id)")
                 .card-header
                     img(src="{{card.image}}")
@@ -12,6 +12,10 @@ section.p-5#card-list
                     .card-name.font-weight-bold {{card.title}}
                     .card-info-sub
                         .card-short {{card.short_description}}
+        .empty-deck(*ngIf="cards != null && cards.length == 0")
+            .d-flex.justify-content-center.font-weight-bold
+                span Карточек нет :(
+
         .button-block.d-flex.justify-content-center(*ngIf="canGetMore")
             button.btn.btn-success.btn-lg((click)="getMoreCards()") Показать еще
 
